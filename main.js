@@ -17,7 +17,7 @@ requirejs.config({
     }
 });
 
-define([
+require([
     "backbone",
     "bootstrap",
 ], function (Backbone, Bootstrap) {
