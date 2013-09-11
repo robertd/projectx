@@ -19,7 +19,7 @@ requirejs.config({
 
 require([
     "backbone",
-    "bootstrap",
-], function (Backbone, Bootstrap) {
+    "bootstrap"
+], function (Backbone) {
     console.log("Init");
 });
