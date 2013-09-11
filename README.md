@@ -1,2 +1,4 @@
 ProjectX
 ========
+
+python -m SimpleHTTPServer
