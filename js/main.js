@@ -19,7 +19,8 @@ requirejs.config({
 
 require([
     "backbone",
+    "appView",
     "bootstrap"
-], function (Backbone) {
-    console.log("Init");
+], function (Backbone, AppView) {
+    var appView = new AppView();
 });
