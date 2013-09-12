@@ -1,14 +1,14 @@
 requirejs.config({
     baseUrl: "js",
     paths: {
-        backbone: "../components/backbone/backbone-min",
-        underscore: "../components/lodash/dist/lodash.underscore.min",
-        jquery: "../components/jquery/jquery.min",
-        d3: "../components/d3/d3.min",
-        nvd3: "../components/nvd3/nv.d3.min",
-        text: "../components/text/text",
+        backbone: "../lib/backbone/backbone-min",
+        underscore: "../lib/lodash/dist/lodash.underscore.min",
+        jquery: "../lib/jquery/jquery.min",
+        d3: "../lib/d3/d3.min",
+        nvd3: "../lib/nvd3/nv.d3.min",
+        text: "../lib/text/text",
         moment: "../componets/min/moment.min",
-        bootstrap: "../components/bootstrap/dist/js/bootstrap.min"
+        bootstrap: "../lib/bootstrap/dist/js/bootstrap.min"
     },
     shim: {
         backbone: { deps: ["underscore", "jquery"] },
