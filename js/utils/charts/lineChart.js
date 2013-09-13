@@ -6,7 +6,8 @@ define([
         nv.addGraph(function() {
             var chart = nv.models.lineChart()
                 .x(function (d) { return d.x; })
-                .y(function (d) { return d.y; });
+                .y(function (d) { return d.y; })
+                .showLegend(true);
             
             chart.xAxis.tickFormat(function (d) { return d; });
             var numberFormater = d3.format(",.");
