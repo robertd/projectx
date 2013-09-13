@@ -1,6 +1,6 @@
 requirejs.config({
     baseUrl: "js",
-    urlArgs: "timestamp=" +  (new Date()).getTime(),
+    urlArgs: "timestamp=" + (new Date()).getTime(),
     paths: {
         "backbone": "../lib/backbone/backbone-min",
         "underscore": "../lib/lodash/dist/lodash.underscore.min",
