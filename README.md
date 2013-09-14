@@ -1,4 +1,4 @@
 ProjectX
 ========
 
-python -m SimpleHTTPServer
+Start the server with `python -m SimpleHTTPServer` and go to `localhost:8000`.
