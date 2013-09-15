@@ -31,7 +31,8 @@ define([
             var chart = nv.models.lineChart()
                 .x(function (d) { return d.x; })
                 .y(function (d) { return d.y; })
-                .showLegend(true);
+                .showLegend(true)
+                .useInteractiveGuideline(true);
             
             chart.xAxis.tickFormat(function (d) { return d; });
             var numberFormater = d3.format(",.");
