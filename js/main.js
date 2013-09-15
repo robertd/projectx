@@ -9,7 +9,7 @@ requirejs.config({
         "d3": "../lib/d3/d3.min",
         "nvd3": "../lib/nvd3/nv.d3.min",
         "text": "../lib/text/text",
-        "moment": "../componets/min/moment.min"
+        "moment": "../lib/momentjs/min/moment.min"
     },
     shim: {
         "backbone": { deps: ["jquery", "underscore"], exports: "Backbone" },

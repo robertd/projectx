@@ -10,6 +10,8 @@ define([
             return new PieChart(data, options);
         } else if (options.chartType === "bar") {
             return new BarChart(data, options);
+        } else {
+            console.error("ChartType not specified!");
         }
     };
     return Chart;
