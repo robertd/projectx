@@ -3,7 +3,6 @@ define([
     "moment"
 ], function () {
     var LineChart = function (data, options) {
-        
         var testData = [{
             key: "A",
             values: [
@@ -27,8 +26,6 @@ define([
                 {x: 7, y: 1}
             ]
         }];
-
-        console.log(testData);
 
         nv.addGraph(function() {
             var chart = nv.models.lineChart()

@@ -1,7 +1,7 @@
 define([
     "nvd3"
 ], function () {
-    var BarChart = function(data, options) {
+    var BarChart = function (data, options) {
         nv.addGraph(function() {  
             chart = nv.models.discreteBarChart()
                 .x(function(d) { return d.x; })
