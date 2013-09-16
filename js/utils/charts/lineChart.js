@@ -8,15 +8,27 @@ define([
         var values2 = [];
 
         for (var i = 1; i <= 100; i++) {
-            values1.push({
-                x: i,
-                value: Math.floor((Math.random()*100000)+1)
-            });
+            if(i>50 && i<60) {
+                values1.push({
+                    x: i,
+                    value: null
+                });
 
-            values2.push({
-                x: i,
-                value: Math.floor((Math.random()*100000)+1)
-            });       
+                values2.push({
+                    x: i,
+                    value: null
+                });
+            }else {
+                values1.push({
+                    x: i,
+                    value: Math.floor((Math.random()*100000)+1)
+                });
+
+                values2.push({
+                    x: i,
+                    value: Math.floor((Math.random()*100000)+1)
+                });
+            }   
         };
 
         var testData = [{
