@@ -1,14 +1,14 @@
 define([
 	"backbone",
 	"utils/drawChart",
-	"text!templates/lineChart.html"
-], function (Backbone, DrawChart, lineChartTemplate) {
+	"text!templates/accountsView.html"
+], function (Backbone, DrawChart, acountsViewTemplate) {
 	"use strict";
 
-	var LineChart = Backbone.View.extend({
-		el: "#line-chart",
+	var AccountsView = Backbone.View.extend({
+		el: "#accounts",
 
-		template: _.template(lineChartTemplate),
+		template: _.template(acountsViewTemplate),
 
 		initialize: function() {
 			this.render();
@@ -25,10 +25,10 @@ define([
 
 			var options = {
 				chartType: "line",
-				selector: "#line-chart svg"
+				selector: "#accounts-chart svg"
 			};
 			this.chart = new DrawChart(data, options);
 		}
 	});
-	return LineChart;
+	return AccountsView;
 });
