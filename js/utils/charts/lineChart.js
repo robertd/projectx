@@ -3,6 +3,7 @@ define([
     "moment"
 ], function () {
     var LineChart = function (data, options) {
+        //TODO: add real data at some point
         var values1 = [];
         var values2 = [];
 
@@ -36,7 +37,7 @@ define([
             
             chart.xAxis.tickFormat(function (d) {
                 /*
-                    This is a workaround to have nice time label 
+                    This is a workaround to have nice temporal label
                 */
                 if (d % 1 === 0) {
                     var now = (new Date()).getTime() - 86400 * 1000 * 365;
