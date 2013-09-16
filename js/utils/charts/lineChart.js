@@ -3,40 +3,49 @@ define([
     "moment"
 ], function () {
     var LineChart = function (data, options) {
+        var values1 = [];
+        var values2 = [];
+
+        for (var i = 1; i <= 100; i++) {
+            values1.push({
+                x: i,
+                value: Math.floor((Math.random()*100000)+1)
+            });
+
+            values2.push({
+                x: i,
+                value: Math.floor((Math.random()*100000)+1)
+            });       
+        };
+
         var testData = [{
-            key: "A",
-            values: [
-                {x: 1, y: 1},
-                {x: 2, y: 2},
-                {x: 3, y: 3},
-                {x: 4, y: 4},
-                {x: 5, y: 4},
-                {x: 6, y: 7},
-                {x: 7, y: 9}
-            ]
+            key: "401k",
+            values: values1
         },{
-            key: "B",
-            values: [
-                {x: 1, y: 3},
-                {x: 2, y: 3},
-                {x: 3, y: 7},
-                {x: 4, y: 6},
-                {x: 5, y: 5},
-                {x: 6, y: 4},
-                {x: 7, y: 1}
-            ]
+            key: "Fidelity",
+            values: values2
         }];
 
         nv.addGraph(function() {
             var chart = nv.models.lineChart()
                 .x(function (d) { return d.x; })
-                .y(function (d) { return d.y; })
+                .y(function (d) { return d.value; })
                 .showLegend(true)
-                .useInteractiveGuideline(true);
+                .useInteractiveGuideline(true)
+                .margin({right: 40});
             
-            chart.xAxis.tickFormat(function (d) { return d; });
+            chart.xAxis.tickFormat(function (d) {
+                /*
+                    This is a workaround to have nice time label 
+                */
+                if (d % 1 === 0) {
+                    var now = (new Date()).getTime() - 86400 * 1000 * 365;
+                    now = new Date(now + (d*30) * 86400 * 1000);
+                    return d3.time.format('%b %d %Y')(now);
+                }
+            });
             var numberFormater = d3.format(",.");
-            chart.yAxis.tickFormat(function (d) { return d; });
+            chart.yAxis.tickFormat(function (d) { return numberFormater(d); });
             
             d3.select(options.selector)
                 .datum(testData)
