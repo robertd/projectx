@@ -1,8 +1,7 @@
 define([
-    "nvd3",
-    "moment"
+    "nvd3"
 ], function () {
-    var LineChart = function (data, options) {
+    var StackedBarChart = function (data, options) {
         //TODO: add real data at some point
         var values1 = [];
         var values2 = [];
@@ -40,34 +39,27 @@ define([
         }];
 
         nv.addGraph(function() {
-            var chart = nv.models.lineChart()
-                .x(function (d) { return d.x; })
-                .y(function (d) { return d.value; })
-                .showLegend(true)
-                .useInteractiveGuideline(true)
-                .margin({right: 40});
-            
-            chart.xAxis.tickFormat(function (d) {
-                /*
-                    This is a workaround to have nice temporal label
-                */
-                if (d % 1 === 0) {
-                    var now = (new Date()).getTime() - 86400 * 1000 * 365;
-                    now = new Date(now + (d*30) * 86400 * 1000);
-                    return d3.time.format('%b %d %Y')(now);
-                }
-            });
+            var chart = nv.models.multiBarChart()
+                .x(function (d) { return d[0]; })
+                .y(function (d) { return d[1]; })
+                .stacked(true)
+                .showLegend(options.legend);
             var numberFormater = d3.format(",.");
-            chart.yAxis.tickFormat(function (d) { return numberFormater(d); });
+            
+            chart.xAxis
+                .tickFormat(function (d) { return d3.time.format("%b %d %Y")(new Date(d)); });
+            chart.yAxis.tickFormat(function (value) { return numberFormater(value); });
             
             d3.select(options.selector)
                 .datum(testData)
-                .transition().duration(500)
+                .transition()
+                .duration(500)
                 .call(chart);
 
             nv.utils.windowResize(chart.update);
+
             return chart;
         });
     };
-    return LineChart;
+    return StackedBarChart;
 });
