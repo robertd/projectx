@@ -7,27 +7,15 @@ define([
         var values2 = [];
 
         for (var i = 1; i <= 100; i++) {
-            if (i>50 && i<60) {
-                values1.push({
-                    x: i,
-                    value: null
-                });
+            values1.push({
+                x: i,
+                y: Math.floor((Math.random()*100000)+1)
+            });
 
-                values2.push({
-                    x: i,
-                    value: null
-                });
-            } else {
-                values1.push({
-                    x: i,
-                    value: Math.floor((Math.random()*100000)+1)
-                });
-
-                values2.push({
-                    x: i,
-                    value: Math.floor((Math.random()*100000)+1)
-                });
-            }   
+            values2.push({
+                x: i,
+                y: Math.floor((Math.random()*100000)+1)
+            });
         };
 
         var testData = [{
@@ -40,15 +28,15 @@ define([
 
         nv.addGraph(function() {
             var chart = nv.models.multiBarChart()
-                .x(function (d) { return d[0]; })
-                .y(function (d) { return d[1]; })
+                .x(function (d) { return d.x; })
+                .y(function (d) { return d.y; })
                 .stacked(true)
-                .showLegend(options.legend);
+                .showLegend(true);
             var numberFormater = d3.format(",.");
             
             chart.xAxis
-                .tickFormat(function (d) { return d3.time.format("%b %d %Y")(new Date(d)); });
-            chart.yAxis.tickFormat(function (value) { return numberFormater(value); });
+                .tickFormat(function (d) { return d; });
+            chart.yAxis.tickFormat(function (d) { return d; });
             
             d3.select(options.selector)
                 .datum(testData)

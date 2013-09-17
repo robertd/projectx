@@ -1,13 +1,15 @@
 define([
     "backbone",
-    "views/accountsView",
+    "views/accountsLineView",
+    "views/accountsStackedBarView",
     "views/pieChart"
-], function (Backbone, AccountsView, PieChart) {
+], function (Backbone, AccountsLineView, AccountsStackedBarView, PieChart) {
 	"use strict";
 	
     var AppView = Backbone.View.extend({
         initialize: function() {
-        	this.lineChart = new AccountsView();
+        	this.accountsLineView = new AccountsLineView();
+            this.accountsStackedBarView = new AccountsStackedBarView();
             this.pieChart = new PieChart();
         }
     });
