@@ -32,11 +32,11 @@ define([
                 .y(function (d) { return d.y; })
                 .stacked(true)
                 .showLegend(true);
-            var numberFormater = d3.format(",.");
+            var numberFormatter = d3.format(",.");
             
             chart.xAxis
                 .tickFormat(function (d) { return d; });
-            chart.yAxis.tickFormat(function (d) { return d; });
+            chart.yAxis.tickFormat(function (d) { return numberFormatter(d); });
             
             d3.select(options.selector)
                 .datum(testData)

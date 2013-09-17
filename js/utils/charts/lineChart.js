@@ -57,8 +57,8 @@ define([
                     return d3.time.format('%b %d %Y')(now);
                 }
             });
-            var numberFormater = d3.format(",.");
-            chart.yAxis.tickFormat(function (d) { return numberFormater(d); });
+            var numberFormatter = d3.format(",.");
+            chart.yAxis.tickFormat(function (d) { return numberFormatter(d); });
             
             d3.select(options.selector)
                 .datum(testData)
