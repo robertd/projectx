@@ -1,14 +1,14 @@
 define([
 	"backbone",
 	"utils/drawChart",
-	"text!templates/pieChart.html"
-], function (Backbone, DrawChart, pieChartTemplate) {
+	"text!templates/investmentsView.html"
+], function (Backbone, DrawChart, investmentsViewTemplate) {
 	"use strict";
 
 	var LineChart = Backbone.View.extend({
-		el: "#pie-chart",
+		el: "#investments",
 
-		template: _.template(pieChartTemplate),
+		template: _.template(investmentsViewTemplate),
 
 		initialize: function() {
 			this.render();
@@ -25,7 +25,7 @@ define([
 
 			var options = {
 				chartType: "pie",
-				selector: "#pie-chart svg"
+				selector: "#investments-chart svg"
 			};
 			this.chart = new DrawChart(data, options);
 		}
