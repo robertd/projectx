@@ -1,12 +1,12 @@
 define([
 	"backbone",
 	"utils/drawChart",
-	"text!templates/investmentsView.html"
+	"text!templates/assetsView.html"
 ], function (Backbone, DrawChart, investmentsViewTemplate) {
 	"use strict";
 
-	var InvestmentsView = Backbone.View.extend({
-		el: "#investments",
+	var AssetsView = Backbone.View.extend({
+		el: "#assets",
 
 		template: _.template(investmentsViewTemplate),
 
@@ -25,10 +25,10 @@ define([
 
 			var options = {
 				chartType: "pie",
-				selector: "#investments-chart svg"
+				selector: "#assets-chart svg"
 			};
 			this.chart = new DrawChart(data, options);
 		}
 	});
-	return InvestmentsView;
+	return AssetsView;
 });

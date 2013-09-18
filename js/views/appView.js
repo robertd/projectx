@@ -2,8 +2,9 @@ define([
     "backbone",
     "views/accountsLineView",
     "views/accountsStackedBarView",
-    "views/investmentsView"
-], function (Backbone, AccountsLineView, AccountsStackedBarView, InvestmentsView) {
+    "views/investmentsView",
+    "views/assetsView"
+], function (Backbone, AccountsLineView, AccountsStackedBarView, InvestmentsView, AssetsView) {
 	"use strict";
 	
     var AppView = Backbone.View.extend({
@@ -11,6 +12,7 @@ define([
         	this.accountsLineView = new AccountsLineView();
             this.accountsStackedBarView = new AccountsStackedBarView();
             this.investmentsView = new InvestmentsView();
+            this.assetsView = new AssetsView();
         }
     });
     return AppView;
