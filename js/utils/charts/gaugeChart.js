@@ -1,10 +1,8 @@
 define([], function () {
     var GaugeChart = function(data, options) {
-        
         var config = {
             size: 130,
             label: data.label,
-            goal: data.goal,
             min: data.min,
             max: data.max,
             minorTicks: 10
