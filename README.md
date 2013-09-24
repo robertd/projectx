@@ -1,8 +1,6 @@
-*ProjectX
+ProjectX
 ========
- 
-**Keep calm and keep browsing!
 
+###_Keep calm and keep browsing!_
 
-**Start Server
 Start the server with `python -m SimpleHTTPServer` and go to `localhost:8000`.
