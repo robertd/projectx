@@ -3,7 +3,7 @@ requirejs.config({
     urlArgs: "timestamp=" + (new Date()).getTime(),
     paths: {
         "backbone": "../lib/backbone/backbone-min",
-        "underscore": "../lib/lodash/dist/lodash.underscore.min",
+        "underscore": "../lib/lodash/dist/lodash.min",
         "bootstrap": "../lib/bootstrap/dist/js/bootstrap.min",
         "jquery": "../lib/jquery/jquery.min",
         "d3": "../lib/d3/d3.min",
